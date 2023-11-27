@@ -17,6 +17,7 @@ const Island = (props) => {
   const islandRef = useRef();
 
   const { nodes, materials } = useGLTF(islandScene);
+  
   return (
     <a.group ref={islandRef} {...props}>
       <mesh 
