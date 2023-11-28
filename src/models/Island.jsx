@@ -22,6 +22,23 @@ const Island = ({ isRotating, setIsRotating, ...props }) => {
   const lastX = useRef(0);
   const rotationSpeed = useRef(0);
   const dampingFactor = 0.95;
+
+  const handlePointerDown = (e) => {
+    e.stopProgation();
+    e.preventDefault();
+    setIsRotating(true);
+  }
+
+  const handlePointerUp = (e) => {
+    e.stopProgation();
+    e.preventDefault();
+    setIsRotating(false);
+  }
+
+  const handlePointerMove = (e) => {
+    e.stopProgation();
+    e.preventDefault();
+  }
   
   return (
     <a.group ref={islandRef} {...props}>
