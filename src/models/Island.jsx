@@ -24,19 +24,25 @@ const Island = ({ isRotating, setIsRotating, ...props }) => {
   const dampingFactor = 0.95;
 
   const handlePointerDown = (e) => {
-    e.stopProgation();
+    e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
+
+    const clientX = e.touches 
+      ? e.touches[0].clientX 
+      : e.clientX;
+
+    lastX.current = clientX;
   }
 
   const handlePointerUp = (e) => {
-    e.stopProgation();
+    e.stopPropagation();
     e.preventDefault();
     setIsRotating(false);
   }
 
   const handlePointerMove = (e) => {
-    e.stopProgation();
+    e.stopPropagation();
     e.preventDefault();
   }
   
