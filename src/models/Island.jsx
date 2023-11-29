@@ -57,6 +57,15 @@ const Island = ({ isRotating, setIsRotating, ...props }) => {
 
     if(isRotating) handlePointerUp(e);
   }
+
+  const handleKeyDown = (e) => {
+    if(e.key === 'ArrowLeft') {
+      if(!isRotating) setIsRotating(true);
+      islandRef.current.rotation.y += 0.01 * Math.PI;
+    } else if(e.key === 'ArrowRight') {
+      islandRef.current.rotation.y -= 0.01 * Math.PI;
+    }
+  }
   
   useEffect(() => {
     document.addEventListener('pointerdown', handlePointerDown);
@@ -70,7 +79,7 @@ const Island = ({ isRotating, setIsRotating, ...props }) => {
     }
 
   }, [gl, handlePointerDown, handlePointerUp, handlePointerMove])
-  
+
   return (
     <a.group ref={islandRef} {...props}>
       <mesh 
