@@ -66,6 +66,12 @@ const Island = ({ isRotating, setIsRotating, ...props }) => {
       islandRef.current.rotation.y -= 0.01 * Math.PI;
     }
   }
+
+  const handleKeyUp = (e) => {
+    if(e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      setIsRotating(false);
+    }
+  }
   
   useEffect(() => {
     document.addEventListener('pointerdown', handlePointerDown);
