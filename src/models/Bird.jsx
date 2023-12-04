@@ -1,11 +1,17 @@
 import { useRef, useEffect } from 'react'
 
 import birdScene from '../assets/3d/bird.glb';
-import { useGLTF } from '@react-three/drei';
+import { useAnimations, useGLTF } from '@react-three/drei';
 
 const Bird = () => {
-    const { scene, animations } = useGLTF(birdScene);
     const birdRef = useRef();
+    const { scene, animations } = useGLTF(birdScene);
+    const { actions } = useAnimations(animations, birdRef);
+
+    useEffect(() => {
+      actions['Take 001'].play();
+    }, [])
+
   return (
     <mesh 
       position={[-5, 2, 1]}
