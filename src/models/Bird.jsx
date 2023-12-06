@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 
 import birdScene from '../assets/3d/bird.glb';
 import { useAnimations, useGLTF } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 
 const Bird = () => {
     const birdRef = useRef();
@@ -15,6 +16,14 @@ const Bird = () => {
     useFrame(({ clock, camera }) => {
       // Update the Y position simulate the flight moving in a sine wave
       birdRef.current.position.y = Math.sin(clock.elapsedTime) * 0.2 + 2
+
+      if(birdRef.cuurent.rotation.y === 0) {
+        birdRef.current.rotation.x += 0.01;
+        birdRef.current.rotation.z -= 0.01;
+      } else {
+        birdRef.current.rotation.x -= 0.01;
+        birdRef.current.rotation.z += 0.01;
+      }
     })
 
   return (
