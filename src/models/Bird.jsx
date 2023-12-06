@@ -12,6 +12,11 @@ const Bird = () => {
       actions['Take 001'].play();
     }, [])
 
+    useFrame(({ clock, camera }) => {
+      // Update the Y position simulate the flight moving in a sine wave
+      birdRef.current.position.y = Math.sin(clock.elapsedTime) * 0.2 + 2
+    })
+
   return (
     <mesh 
       position={[-5, 2, 1]}
