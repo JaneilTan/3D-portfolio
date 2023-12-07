@@ -33,7 +33,7 @@ const Bird = () => {
         birdRef.current.position.z -= 0.01;
       } else {
         // Moving backward
-        birdRef.current.position.x -= 0.01;
+        birdRef.current.position.x -= 0.01; 
         birdRef.current.position.z += 0.01;
       }
     })
