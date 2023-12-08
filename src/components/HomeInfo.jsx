@@ -31,10 +31,18 @@ const renderContent = {
         />
     ),
     3: (
-        <h1>3</h1>
+        <InfoBox 
+            text="Made multiple projects over time. Curious to check it out?"
+            link="/projects"
+            btnText="Visit my portfolio"
+        />
     ),
     4: (
-        <h1>4</h1>
+        <InfoBox 
+            text="Need a project done or looing for a dev? I'm just a few keystrokes away"
+            link="/contact"
+            btnText="Let's talk"
+        />
     ),
 }
 
