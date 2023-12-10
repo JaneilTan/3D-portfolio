@@ -5,7 +5,10 @@ const Contacts = () => {
   const [form, setForm] = useState({ name: '', email: '', message: ''})
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = () => {};
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  };
+  
   const handleFocus = () => {};
   const handleBlur = () => {};
   const handleSubmit = () => {};
