@@ -8,10 +8,15 @@ const Contacts = () => {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   };
-  
+
+  const handleSubmit = (e) => {
+    e.prevventDefault();
+    setIsLoading(true);
+  };
+
   const handleFocus = () => {};
   const handleBlur = () => {};
-  const handleSubmit = () => {};
+  
 
   return (
    <section className="relative flex lg:flex-row flex-col
