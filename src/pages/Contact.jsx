@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser';
 
 const Contacts = () => {
   const formRef = useRef(null);
@@ -12,6 +13,19 @@ const Contacts = () => {
   const handleSubmit = (e) => {
     e.prevventDefault();
     setIsLoading(true);
+
+    emailjs.sendForm(
+      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          to_name: "Janeil",
+          from_email: form.email,
+          to_email: 'janeil.tan@outlook.com',
+          message: fromJSON.message
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
   };
 
   const handleFocus = () => {};
