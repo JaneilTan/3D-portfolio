@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const Contacts = () => {
   const [form, setForm] = useState({ name: '', email: '', message: ''})
+  
 
   const handleChange = () => {};
   const handleFocus = () => {};
@@ -25,8 +26,39 @@ const Contacts = () => {
             required 
             value={form.name}
             onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
           />
         </label>
+        <label className="text-black-500 font-semibold">
+          Email
+          <input 
+            type="email" 
+            name="email"
+            className="input"
+            placeholder="john@gmail.com"
+            required 
+            value={form.email}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+        </label>
+        <label className="text-black-500 font-semibold">
+          Your Message
+          <textarea 
+            name="name"
+            rows={4}
+            className="textarea"
+            placeholder="Let me know how can I help you."
+            required 
+            value={form.message}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+        </label>
+        
       </form>
     </div>
    </section>
