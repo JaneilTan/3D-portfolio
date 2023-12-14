@@ -81,7 +81,7 @@ const Contacts = () => {
         <label className="text-black-500 font-semibold">
           Your Message
           <textarea 
-            name="name"
+            name="message"
             rows={4}
             className="textarea"
             placeholder="Let me know how can I help you."
