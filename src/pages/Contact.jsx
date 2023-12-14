@@ -11,10 +11,10 @@ const Contacts = () => {
   };
 
   const handleSubmit = (e) => {
-    e.prevventDefault();
+    e.preventDefault();
     setIsLoading(true);
 
-    emailjs.sendForm(
+    emailjs.send(
       import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
       import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
@@ -22,10 +22,19 @@ const Contacts = () => {
           to_name: "Janeil",
           from_email: form.email,
           to_email: 'janeil.tan@outlook.com',
-          message: fromJSON.message
+          message: form.message
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
+      ).then(() => {
+        setIsLoading(false);
+        // TODO: Show success message
+        // TODO: Hide an alert
+        setForm({ name: '', email: '', message: ''});
+      }).catch((error) => {
+        setIsLoading(false);
+        console.log(error);
+        // TODO: Show error message
+      })
   };
 
   const handleFocus = () => {};
