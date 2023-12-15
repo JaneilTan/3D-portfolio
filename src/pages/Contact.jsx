@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import { Canvas } from '@react-three/fiber'
 import emailjs from '@emailjs/browser';
 
 const Contacts = () => {
@@ -101,6 +102,12 @@ const Contacts = () => {
           {isLoading ? 'Sending...' : 'Send Message'}
         </button>
       </form>
+    </div>
+
+    <div className='lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]'>
+      <Canvas>
+        
+      </Canvas>
     </div>
    </section>
   )
