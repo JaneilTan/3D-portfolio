@@ -18,7 +18,7 @@ const Fox = ({ currentAnimation, ...props }) => {
 
   useEffect(() => {
 
-  }, [action, currentAnimation])
+  }, [actions, currentAnimation]);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -59,4 +59,4 @@ const Fox = ({ currentAnimation, ...props }) => {
   );
 }
 
-export default Fox
+export default Fox;
