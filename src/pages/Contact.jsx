@@ -10,6 +10,7 @@ const Contacts = () => {
   const formRef = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', message: ''})
   const [isLoading, setIsLoading] = useState(false);
+  const [currentAnimation, setCurrentAnimation] = useState('idle');
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -18,6 +19,7 @@ const Contacts = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setCurrentAnimation('hit');
 
     emailjs.send(
       import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
@@ -37,13 +39,14 @@ const Contacts = () => {
         setForm({ name: '', email: '', message: ''});
       }).catch((error) => {
         setIsLoading(false);
+        setCurrentAnimation('idle');
         console.log(error);
         // TODO: Show error message
       })
   };
 
-  const handleFocus = () => {};
-  const handleBlur = () => {};
+  const handleFocus = () => setCurrentAnimation('walk');
+  const handleBlur = () => setCurrentAnimation('idle');
   
 
   return (
@@ -121,6 +124,7 @@ const Contacts = () => {
         <ambientLight intensity={0.5} />
         <Suspense fallback={<Loader />}>
           <Fox
+            currentAnimation={currentAnimation}
             position={[0.5, 0.35, 0]}
             rotation={[12.6, -0.6, 0]}
             scale={[0.5, 0.5, 0.5]}
