@@ -3,9 +3,10 @@ import { Canvas } from '@react-three/fiber';
 import emailjs from '@emailjs/browser';
 
 import Loader from '../components/Loader';
-import Alert from '../components/Loader';
+import Alert from '../components/Alert';
 
 import Fox from '../models/Fox';
+import useAlert from '../hooks/useAlert';
 
 const Contacts = () => {
   const formRef = useRef(null);
@@ -64,7 +65,7 @@ const Contacts = () => {
    max-container">
       {alert.show && <Alert {...alert} />}
       <Alert {...alert} />
-      
+
     <div className="flex-1 min-w-[50%] flex flex-col">
       <h1 className="head-text">Get in Touch</h1>
       <form
