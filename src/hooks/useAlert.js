@@ -16,9 +16,7 @@ const useAlert = () => {
         type: 'danger'
     })
 
-  return (
-    <div>useAlert</div>
-  )
+  return { alert, showAlert, hideAlert }
 }
 
 export default useAlert
