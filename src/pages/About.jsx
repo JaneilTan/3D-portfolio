@@ -50,6 +50,10 @@ const About = () => {
                     <h3 className='text-black text-xl font-poppins sont-semibold'>
                       {experience.title}
                     </h3>
+                    <p className='text-black-500 font-medium font-base'
+                    style={{margin:0}}>
+                      {experience.company_name}
+                    </p>
                   </div>
                 </VerticalTimelineElement>
               ))}
