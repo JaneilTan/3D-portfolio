@@ -47,7 +47,7 @@ const About = () => {
               {experiences.map((experience) => (
                 <VerticalTimelineElement>
                   <div>
-                    <h3>
+                    <h3 className='text-black text-xl font-poppins sont-semibold'>
                       {experience.title}
                     </h3>
                   </div>
