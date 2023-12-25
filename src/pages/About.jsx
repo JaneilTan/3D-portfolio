@@ -1,6 +1,7 @@
-import React from 'react'
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
 
-import { skills } from '../constants';
+import { skills, experiences } from '../constants';
 
 const About = () => {
   return (
@@ -39,6 +40,20 @@ const About = () => {
           <div className='mt-5 flex flex-col gap-3 text-slate-500'>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Praesent sit amet augue fermentum, porta neque et, mattis leo.</p>
+          </div>
+
+          <div className='mt-12 flex'>
+            <VerticalTimeline>
+              {experiences.map((experience) => (
+                <VerticalTimelineElement>
+                  <div>
+                    <h3>
+                      {experience.title}
+                    </h3>
+                  </div>
+                </VerticalTimelineElement>
+              ))}
+            </VerticalTimeline>
           </div>
       </div>
     </section>
