@@ -48,7 +48,7 @@ const About = () => {
                 <VerticalTimelineElement
                   key={experience.company_name}
                   date={experience.date}
-                  icon={<div>
+                  icon={<div className="flex justify-center items-center w-full h-full">
                     <img 
                       src={experience.icon} 
                       alt={experience.company_name}
