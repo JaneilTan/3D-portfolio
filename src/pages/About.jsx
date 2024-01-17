@@ -45,7 +45,23 @@ const About = () => {
           <div className='mt-12 flex'>
             <VerticalTimeline>
               {experiences.map((experience) => (
-                <VerticalTimelineElement>
+                <VerticalTimelineElement
+                  key={experience.company_name}
+                  date={experience.date}
+                  icon={<div>
+                    <img 
+                      src={experience.icon} 
+                      alt={experience.company_name}
+                      className='w-[60%] h-[60%] object-contain'  
+                    />
+                  </div>}
+                  iconStyle={{
+                    borderBottom: '8px',
+                    borderStyle: 'solid',
+                    borderBottomColor: experience.iconBg,
+                    boxShadow: 'none',
+                  }}
+                >
                   <div>
                     <h3 className='text-black text-xl font-poppins sont-semibold'>
                       {experience.title}
